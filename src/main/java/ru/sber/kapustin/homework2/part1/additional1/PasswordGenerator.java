@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class PasswordGenerator {
+    public static final int MIN_PASSWORD_LENGTH = 8;
+
     private static final char[] SPECIAL_SYMBOLS = {'_', '*', '-'};
 
     private static final int UPPERCASE_A_CODE = 'A';
@@ -12,14 +14,14 @@ public class PasswordGenerator {
     private static final int CHARACTER_TYPES = 4;
 
     public static String createPassword(int passwordLength) {
-        if (passwordLength < 8) {
+        if (passwordLength < MIN_PASSWORD_LENGTH) {
             throw new IllegalArgumentException();
         }
 
-        int[] typeCounts = {0, 0, 0, 0};
-        int maxNumberSameTypeChars = determinateCurrentMax(passwordLength, typeCounts);
+        final var typeCounts = new int[]{0, 0, 0, 0};
+        var maxNumberSameTypeChars = determinateCurrentMax(passwordLength, typeCounts);
 
-        StringBuilder sb = new StringBuilder();
+        final var sb = new StringBuilder();
         for (int i = 0; i < passwordLength; i++) {
             addNextChar(sb, maxNumberSameTypeChars, typeCounts);
             maxNumberSameTypeChars = determinateCurrentMax(passwordLength, typeCounts);
@@ -29,9 +31,11 @@ public class PasswordGenerator {
     }
 
     private static void addNextChar(StringBuilder sb, int maxCount, int[] typeCounts) {
-        Random random = new Random();
+        final var random = new Random();
 
-        int curLength = sb.length(), type = 0;
+        final var curLength = sb.length();
+        var type = 0;
+
         while (curLength == sb.length()) {
             type = random.nextInt(CHARACTER_TYPES);
             if (typeCounts[type] >= maxCount) {
@@ -51,9 +55,10 @@ public class PasswordGenerator {
     }
 
     private static int determinateCurrentMax(int passLength, int[] typeCounts) {
-        int notMetTypes = 0, charsLeft = passLength;
+        var notMetTypes = 0;
+        var charsLeft = passLength;
 
-        for (int count : typeCounts) {
+        for (var count : typeCounts) {
             if (count > 0) {
                 charsLeft -= count;
             } else {

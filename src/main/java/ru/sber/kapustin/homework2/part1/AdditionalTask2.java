@@ -6,19 +6,19 @@ import java.util.Scanner;
 public class AdditionalTask2 {
 
     public static void main(String[] args) {
-        int[] arr = readArray();
-        int[] squaredArr = createSquaredArray(arr);
+        final var arr = readArray();
+        final var squaredArr = createSquaredArray(arr);
 
         printArray(squaredArr);
     }
 
     private static int[] readArray() {
-        Scanner console = new Scanner(System.in);
+        final var console = new Scanner(System.in);
 
-        int length = console.nextInt();
-        int[] arr = new int[length];
+        final var length = console.nextInt();
+        final var arr = new int[length];
 
-        for (int index = 0; index < length; index++) {
+        for (var index = 0; index < length; index++) {
             arr[index] = console.nextInt();
         }
 
@@ -26,17 +26,18 @@ public class AdditionalTask2 {
     }
 
     private static int[] createSquaredArray(int[] arr) {
-        int firstPositiveElemIndex = 0;
-
-        for (int index = 0; index < arr.length; index++) {
+        var firstPositiveElemIndex = 0;
+        for (var index = 0; index < arr.length; index++) {
             if (arr[index] >= 0) {
                 firstPositiveElemIndex = index;
                 break;
             }
         }
 
-        int leftIndex = firstPositiveElemIndex - 1, squaredArrIndex = 0;
-        int[] squaredArr = new int[arr.length];
+        var leftIndex = firstPositiveElemIndex - 1;
+        var squaredArrIndex = 0;
+        final var squaredArr = new int[arr.length];
+
         while (squaredArrIndex < squaredArr.length) {
             if (firstPositiveElemIndex == arr.length || leftIndex >= 0 && -arr[leftIndex] < arr[firstPositiveElemIndex]) {
                 squaredArr[squaredArrIndex++] = (int) Math.pow(arr[leftIndex--], 2);

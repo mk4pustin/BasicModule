@@ -17,7 +17,7 @@ public class SimpleGame {
 
     public int compareWithHiddenNumber(int number) {
         if (!isGameEnd) {
-            int compareValue = Integer.compare(number, hiddenNumber);
+            final var compareValue = Integer.compare(number, hiddenNumber);
 
             if (compareValue == 0) {
                 isGameEnd = true;

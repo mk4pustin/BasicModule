@@ -5,19 +5,19 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int passwordLength = readLength();
+        final var passwordLength = readLength();
 
         printPassword(PasswordGenerator.createPassword(passwordLength));
     }
 
     private static int readLength() {
-        Scanner console = new Scanner(System.in);
+        final var console = new Scanner(System.in);
 
         try {
             System.out.print("Enter password length: ");
-            int length = console.nextInt();
+            final var length = console.nextInt();
 
-            if (length < 8) {
+            if (length < PasswordGenerator.MIN_PASSWORD_LENGTH) {
                 System.out.println("Password with " + length + " number of characters is insecure. Please try again...");
 
                 return readLength();
