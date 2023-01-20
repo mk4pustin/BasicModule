@@ -1,5 +1,6 @@
 package ru.sber.kapustin.homework2.part1.additional1;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class PasswordGenerator {
@@ -50,24 +51,16 @@ public class PasswordGenerator {
     }
 
     private static int determinateCurrentMax(int passLength, int[] typeCounts) {
-        int maxTypesCount = 0, notMetTypes = 0, charsLeft = passLength;
+        int notMetTypes = 0, charsLeft = passLength;
 
         for (int count : typeCounts) {
             if (count > 0) {
                 charsLeft -= count;
-
-                if (count > maxTypesCount) {
-                    maxTypesCount = count;
-                }
             } else {
                 notMetTypes++;
             }
         }
 
-        if (notMetTypes == 4) {
-            return passLength - (notMetTypes - 1);
-        }
-
-        return charsLeft == notMetTypes? 1 : maxTypesCount + (charsLeft - notMetTypes);
+        return charsLeft == notMetTypes? 1 : passLength - (CHARACTER_TYPES - 1);
     }
 }
