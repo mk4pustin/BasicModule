@@ -1,4 +1,4 @@
-package ru.sber.kapustin.homework3.task7;
+package ru.sber.kapustin.homework3.part1.task7;
 
 public class Test {
 

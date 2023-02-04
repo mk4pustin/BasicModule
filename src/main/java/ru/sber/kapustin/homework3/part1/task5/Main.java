@@ -1,4 +1,4 @@
-package ru.sber.kapustin.homework3.task5;
+package ru.sber.kapustin.homework3.part1.task5;
 
 public class Main {
 

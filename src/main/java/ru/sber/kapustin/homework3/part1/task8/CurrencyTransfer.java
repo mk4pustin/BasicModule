@@ -1,4 +1,4 @@
-package ru.sber.kapustin.homework3.task8;
+package ru.sber.kapustin.homework3.part1.task8;
 
 public enum CurrencyTransfer {
     DOLLARS_TO_RUBLES,

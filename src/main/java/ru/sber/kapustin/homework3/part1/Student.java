@@ -1,4 +1,4 @@
-package ru.sber.kapustin.homework3;
+package ru.sber.kapustin.homework3.part1;
 
 public class Student {
     private String name;

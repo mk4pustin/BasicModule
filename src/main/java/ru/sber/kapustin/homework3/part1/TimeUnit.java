@@ -1,4 +1,4 @@
-package ru.sber.kapustin.homework3;
+package ru.sber.kapustin.homework3.part1;
 
 public class TimeUnit {
     private int hours;
