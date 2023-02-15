@@ -76,6 +76,9 @@ public class Student {
     }
 
     public void setGrades(int[] grades) {
+        if (grades == null || grades.length != MAX_GRADES_NUMBER)
+            throw new IllegalArgumentException("The size of the passed array must be 10.");
+
         this.grades = grades;
         this.currentGradesNumber = getNewCurGradesNumber();
     }
