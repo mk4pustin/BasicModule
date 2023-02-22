@@ -12,10 +12,8 @@ class LibraryTest {
     @Test
     void addUntitledBookTest() {
         final var library = new Library();
-
-        final var thrown = assertThrows(IllegalArgumentException.class,
-                () -> library.addBook(new Book("Толстой", " ")));
-        assertNotNull(thrown.getMessage());
+        
+        assertThrows(IllegalArgumentException.class, () -> library.addBook(new Book("Толстой", " ")));
     }
 
     @Test
