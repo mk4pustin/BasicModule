@@ -5,8 +5,6 @@ public class BestCarpenterEver {
     public boolean canFixFurniture(Furniture furniture) {
         if (furniture == null) return false;
 
-        if (furniture instanceof Stool) return true;
-
-        return false;
+        return furniture instanceof Fixable;
     }
 }
