@@ -2,5 +2,7 @@ package ru.sber.kapustin.homework3.part3.task1;
 
 public interface Walking {
 
-    void walk();
+    default void walk() {
+        System.out.println("Walk");
+    }
 }
